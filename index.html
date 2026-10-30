@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>CCNA 2 v7 Final Exam - Testovací Aplikace</title>
+  
+  <!-- Apple & Mobile Web App Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="CCNA 2 Test">
+  <meta name="theme-color" content="#0a84ff">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <link rel="manifest" href="manifest.json">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- App Root Flex Shell (Locks 100% to visible iPhone viewport) -->
+  <div class="app-root">
+    
+    <!-- Header (Top Flex Item) -->
+    <header class="app-header">
+      <div class="header-top">
+        <div class="brand">
+          <img src="icon.svg" alt="CCNA Logo" class="brand-icon">
+          <div>
+            <div class="brand-title">CCNA 2 v7 Test</div>
+            <div class="brand-subtitle">SRWE Final Exam</div>
+          </div>
+        </div>
+        <div class="header-actions">
+          <span id="scoreBadge" class="header-score-pill">0 / 168</span>
+          <!-- Shuffle Toggle Button -->
+          <button id="shuffleBtn" class="icon-btn" title="Náhodné pořadí" aria-label="Náhodné pořadí">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 3 21 3 21 8"></polyline>
+              <line x1="4" y1="20" x2="21" y2="3"></line>
+              <polyline points="21 16 21 21 16 21"></polyline>
+              <line x1="15" y1="15" x2="21" y2="21"></line>
+              <line x1="4" y1="4" x2="9" y2="9"></line>
+            </svg>
+          </button>
+          <!-- Reset / Stats Button -->
+          <button id="resetBtn" class="icon-btn" title="Resetovat pokrok" aria-label="Resetovat pokrok">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+              <path d="M3 3v5h5"></path>
+            </svg>
+          </button>
+          <!-- Dark Mode Toggle Button -->
+          <button id="themeToggleBtn" class="icon-btn" title="Přepnout tmavý režim" aria-label="Přepnout tmavý režim">
+            <svg id="themeIconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg id="themeIconMoon" style="display:none;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Top Progress Bar -->
+      <div class="progress-bar-container">
+        <div id="progressBar" class="progress-bar-fill"></div>
+      </div>
+      
+      <!-- Segmented Tab Controls (iOS style) -->
+      <div class="segmented-container">
+        <div class="segmented-control" role="tablist">
+          <button id="tabAll" class="segmented-btn active" role="tab" aria-selected="true">
+            <span>Všechny otázky</span>
+            <span id="badgeAll" class="badge-count">168</span>
+          </button>
+          <button id="tabNeumim" class="segmented-btn neumim-btn" role="tab" aria-selected="false">
+            <span>⚠️ NEUMÍM</span>
+            <span id="badgeNeumim" class="badge-count">0</span>
+          </button>
+          <button id="tabUnanswered" class="segmented-btn" role="tab" aria-selected="false">
+            <span>Zbývá</span>
+            <span id="badgeUnanswered" class="badge-count">168</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area (Middle Flex Item, Scrolls smoothly) -->
+    <main class="main-container">
+      <div id="cardContainer">
+        <!-- Question Card populated dynamically by app.js -->
+      </div>
+    </main>
+
+    <!-- Bottom Navigation Bar (Bottom Flex Item, Sits cleanly above Home Bar) -->
+    <nav class="bottom-nav">
+      <div class="nav-inner">
+        <button id="prevBtn" class="nav-btn" aria-label="Předchozí otázka">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          <span>Předchozí</span>
+        </button>
+
+        <div id="gridToggleBtn" class="nav-center-btn" role="button" tabindex="0" title="Zobrazit přehled otázek">
+          <div id="navCounter" class="nav-center-title">1 / 168</div>
+          <div id="navScore" class="nav-center-sub">Přehled otázek</div>
+        </div>
+
+        <button id="nextBtn" class="nav-btn primary" aria-label="Další otázka">
+          <span>Další</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+  </div>
+
+  <!-- Question Grid / Jump Sheet Modal -->
+  <div id="gridModal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-sheet">
+      <div class="sheet-handle"></div>
+      <div class="sheet-header">
+        <div class="sheet-title">Přehled všech otázek</div>
+        <button id="closeSheetBtn" class="sheet-close-btn">&times;</button>
+      </div>
+      
+      <!-- Search Input inside sheet -->
+      <div class="sheet-search">
+        <input type="text" id="searchInput" class="search-input" placeholder="🔍 Hledat v otázkách (např. DHCP, OSPF, #24)..." />
+      </div>
+
+      <!-- Legend -->
+      <div class="sheet-legend">
+        <div class="legend-item">
+          <span class="legend-dot correct"></span>
+          <span>Správně</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot neumim"></span>
+          <span>NEUMÍM</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot unanswered"></span>
+          <span>Nezodpovězeno</span>
+        </div>
+      </div>
+
+      <!-- Grid of Questions -->
+      <div class="sheet-body">
+        <div id="questionsGrid" class="questions-grid">
+          <!-- Populated by app.js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal for Zooming Exhibits -->
+  <div id="lightboxModal" class="lightbox-modal" aria-hidden="true">
+    <div class="lightbox-header">
+      <span>Schéma / Zadání otázky</span>
+      <button id="lightboxCloseBtn" class="lightbox-close-btn">Zavřít</button>
+    </div>
+    <div class="lightbox-body">
+      <img id="lightboxImg" class="lightbox-img" src="" alt="Detail schématu">
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container">
+    <div id="toastMessage" class="toast">Oznámení</div>
+  </div>
+
+  <!-- App Data and Logic -->
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

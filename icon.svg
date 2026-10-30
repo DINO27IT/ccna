@@ -1,0 +1,26 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a84ff" />
+      <stop offset="100%" stop-color="#0056b3" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#30d158" />
+      <stop offset="100%" stop-color="#64d2ff" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="115" fill="url(#bg)" />
+  <g fill="none" stroke="#ffffff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+    <!-- Network nodes and switch / router icon -->
+    <circle cx="256" cy="160" r="48" fill="#ffffff" fill-opacity="0.15" />
+    <circle cx="140" cy="350" r="40" fill="#ffffff" fill-opacity="0.15" />
+    <circle cx="372" cy="350" r="40" fill="#ffffff" fill-opacity="0.15" />
+    <line x1="220" y1="195" x2="165" y2="315" />
+    <line x1="292" y1="195" x2="347" y2="315" />
+    <line x1="180" y1="350" x2="332" y2="350" />
+    <!-- Arrows inside central circle -->
+    <path d="M 235 145 L 275 145 M 265 135 L 275 145 L 265 155" stroke-width="12" />
+    <path d="M 275 175 L 235 175 M 245 165 L 235 175 L 245 185" stroke-width="12" />
+  </g>
+  <text x="256" y="445" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif" font-size="44" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="2">CCNA 2 v7</text>
+</svg>

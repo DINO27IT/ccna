@@ -1,0 +1,17 @@
+{
+  "name": "CCNA 2 v7 Final Exam Test",
+  "short_name": "CCNA 2 Test",
+  "description": "Testové otázky CCNA 2 v7.0 Switching, Routing and Wireless Essentials s okamžitým vyhodnocením a sekcí NEUMÍM",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0a84ff",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
